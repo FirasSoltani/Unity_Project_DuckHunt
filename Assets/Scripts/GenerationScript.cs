@@ -15,9 +15,9 @@ public class GenerationScript : MonoBehaviour
 
     IEnumerator StartSpawning() {
         yield return new WaitForSeconds(3);
-        float x = Random.Range(-5, 5);
-        float y = 1;
-        float z = 0;
+        float x = Random.Range(-0.3f, 0.3f);
+        float y = spawnPoint.transform.position.y;
+        float z = spawnPoint.transform.position.z;
         int random = Random.Range(0,2);
         spawnPoint.transform.position = new Vector3(x,y,z);
         Instantiate(ballons[random], spawnPoint.transform.position, Quaternion.identity);
