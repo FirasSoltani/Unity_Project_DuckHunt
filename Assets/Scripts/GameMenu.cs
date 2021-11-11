@@ -14,5 +14,10 @@ public class GameMenu : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+    }
+
 }

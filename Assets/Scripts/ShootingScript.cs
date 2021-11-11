@@ -14,15 +14,18 @@ public class ShootingScript : MonoBehaviour
     private int score = 0;
     private int ammoCount = 3;
     public Text gameOver;
-   
-   public void shoot() {
+    public GameObject GameOverPanel;
+
+
+    public void shoot() {
        RaycastHit hit;
-       if(ammoCount == 0)   {   
+        if(ammoCount == 0)
+        {
             text.gameObject.SetActive(true);
         }
-       if(Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit)) {
+        if (Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit)) {
            Debug.Log(hit.transform.name);
-           if(ammoCount <= 3) {
+           if(ammoCount > 0) {
             ammoCount++;
             text.text = ammoCount.ToString();
             score += 100;
@@ -40,8 +43,13 @@ public class ShootingScript : MonoBehaviour
             text.text = ammoCount.ToString();
             score -= 50;
             textScore.text = "Score : "+ score.ToString();
-           }
-       }
+                if (ammoCount == 0)
+                {
+                    GameOverPanel.SetActive(true);
+                }
+
+            }
+        }
        Debug.Log(ammoCount);
    }
 }
