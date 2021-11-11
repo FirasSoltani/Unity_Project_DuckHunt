@@ -11,9 +11,9 @@ public class ShootingScript : MonoBehaviour
    public void shoot() {
        RaycastHit hit;
        if(Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit)) {
-           Debug.Log(hit.transform.parent.name);
-           if(string.Equals("balloon1(Clone)",hit.transform.parent.name) || string.Equals(hit.transform.parent.name, "balloon2(Clone)") || hit.transform.parent.name == "balloon3(Clone)") {
-               GameObject obj = hit.transform.parent.gameObject;
+           Debug.Log(hit.transform.name);
+           if(string.Equals("DuckObject(Clone)",hit.transform.name) || string.Equals("DuckObject",hit.transform.name)) {
+               GameObject obj = hit.transform.gameObject;
                Destroy(obj); 
                Instantiate(smoke, hit.point, Quaternion.LookRotation(hit.normal));
                Debug.Log("Hit");

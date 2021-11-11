@@ -15,7 +15,7 @@ public class GenerationScript : MonoBehaviour
 
     IEnumerator StartSpawning() {
         yield return new WaitForSeconds(3);
-        float x = Random.Range(-0.3f, 0.3f);
+        float x = Random.Range(-0.2f, 0.2f);
         float y = spawnPoint.transform.position.y;
         float z = spawnPoint.transform.position.z;
         int random = Random.Range(0,2);
